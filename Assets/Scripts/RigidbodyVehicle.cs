@@ -59,7 +59,7 @@ public class RigidbodyVehicle : MonoBehaviour
         //  if (Input.GetKeyDown(KeyCode.G))
         if (!stalled)
         {
-            if (rbody.velocity.magnitude < 10f) // how fast are we going? if too fast, don't speed up
+            if (rbody.velocity.magnitude < 25f) // how fast are we going? if too fast, don't speed up
             {
                 rbody.AddForce(transform.forward * inputVector.y * moveSpeed, ForceMode.Impulse);
             }
