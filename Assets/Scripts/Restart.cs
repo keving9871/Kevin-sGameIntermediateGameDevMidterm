@@ -10,6 +10,7 @@ public class Restart : MonoBehaviour
 	public void OnClickDown()
 	{
 		SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1; 
 	}
 
 	

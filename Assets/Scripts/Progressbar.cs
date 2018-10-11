@@ -42,6 +42,7 @@ public class Progressbar : MonoBehaviour {
         if (progress >= 1)
         {
             carscript.stalled = false;
+           
         }
         else { progress += 0.15f; }
 

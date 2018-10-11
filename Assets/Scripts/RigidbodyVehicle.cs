@@ -13,6 +13,8 @@ public class RigidbodyVehicle : MonoBehaviour
     public bool stalled;
     public float timer;
     public Progressbar progressbarscript;
+    public GameObject stalledsprite;
+
 
     // Use this for initialization
     void Start()
@@ -40,12 +42,14 @@ public class RigidbodyVehicle : MonoBehaviour
             float vertical = Input.GetAxis("Vertical");
             inputVector = new Vector2(horizontal, vertical);
             timer -= Time.deltaTime;
-
+           
             if (timer <= 0)
             {
                 stalled = true;
                 timer = Random.Range(15f, 32f);
                 progressbarscript.progress = 0f;
+
+
             }
         }
        
@@ -59,6 +63,7 @@ public class RigidbodyVehicle : MonoBehaviour
         //  if (Input.GetKeyDown(KeyCode.G))
         if (!stalled)
         {
+            stalledsprite.SetActive(false);
             if (rbody.velocity.magnitude < 25f) // how fast are we going? if too fast, don't speed up
             {
                 rbody.AddForce(transform.forward * inputVector.y * moveSpeed, ForceMode.Impulse);
